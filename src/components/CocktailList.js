@@ -1,23 +1,16 @@
 import React from 'react'
-import Cocktail from '../components/Cocktail'
+import SmallCocktail from "../components/SmallCocktail"
 import { GlobalContext } from '../Context'
 
 const CocktailList =()=>{
-  const { cocktails } = GlobalContext();
-  if(cocktails !== []){
-    return (
-      <div className="cocktailList">
-        {console.log(cocktails)}
-        {cocktails.map(cocktail => <Cocktail key={cocktail.id} cocktail={cocktail}/>)}
-      </div>
-    )
-  }else {
-    return (
-      <div>
-        <h1>wait for the cocktails</h1>
-      </div>
-    )
-  }
+  const { cocktails, loading } = GlobalContext();
+  return (
+    loading ? 
+    (<h1>loading ...</h1>) : 
+    (<div className="cocktailList">
+      {cocktails.map(cocktail => <SmallCocktail key={cocktail.id} cocktail={cocktail}/>)}
+    </div>)
+  )
 }
 
 export default CocktailList

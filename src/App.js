@@ -1,18 +1,25 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './views/Home';
+import Contact from './views/Contact';
+import TheCocktail from './views/TheCocktail';
+import Cocktails from './views/Cocktails';
 import './App.css';
 
-function App() {
+function App(){
   return (
     <BrowserRouter>
-      <div className="App">
-        <div className="divOver divOver1"></div>
-        <div className="divOver divOver2"></div>
+      <div className="App flex-column-center">
         <Navbar />
         <Switch>
           <Route exact path="/"><Home /></Route>
+          <Route path="/cocktails"><Cocktails /></Route>
+          <Route path="/contact"><Contact /></Route>
+          <Route path="/cocktail/:id"><TheCocktail /></Route>
+          <Route><Home /></Route>
         </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   );

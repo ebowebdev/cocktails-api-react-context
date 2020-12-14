@@ -1,13 +1,22 @@
 import React from 'react'
-import Search from '../components/SearchForm'
-import CocktailList from '../components/CocktailList'
+import img from '../images/viva.png'
+import Cocktails from './Cocktails'
+import Contact from './Contact'
 
-export default function Home(){
-
-  return(
-    <div className="home flex-column-center">
-      <Search />
-      <CocktailList />
+const Home = ()=>{
+  return (
+    <div>
+      <div className="home">
+        <img src={img} alt="imagee"/>
+        <h1 className="home-box">
+          Our job is give you the best Cocktails
+        </h1>
+      </div>
+      <Cocktails />
+      <hr/>
+      <Contact />
     </div>
   )
 }
+
+export default Home
